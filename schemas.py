@@ -3,10 +3,11 @@ from typing import Optional
 
 # Matches the payload from your MasterFlowScreen
 class UserRegisterIn(BaseModel):
-    account_type: str
+    # account_type: str
     full_name: str
     email: EmailStr
-    country: str
+    # country: str
+    currency: str
     document_type: str
     phone_number: str
     dob: str
@@ -23,8 +24,11 @@ class UserLoginIn(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
-    refresh_token: str # NEW: Added refresh token to the response
+    refresh_token: str 
     token_type: str = "bearer"
+    # NEW: Add these so the frontend can cache them
+    full_name: str | None = None
+    avatar_url: str | None = None
 
 class RefreshTokenIn(BaseModel):
     refresh_token: str # NEW: Schema for the refresh endpoint

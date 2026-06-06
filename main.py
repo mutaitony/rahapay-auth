@@ -27,4 +27,4 @@ app.include_router(users)
 if __name__ == "__main__":
     import uvicorn
     # Use a string for "app" so reload works
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)

@@ -17,13 +17,15 @@ class User(Base):
     )
     
     # FIXED: Added explicit VARCHAR lengths required by the MySQL storage engine
-    account_type = Column(String(50), nullable=False)  # e.g., "Personal", "Business"
+    # account_type = Column(String(50), nullable=False)  # e.g., "Personal", "Business"
     full_name = Column(String(255), nullable=False)
     email = Column(String(255), unique=True, index=True, nullable=False)
-    country = Column(String(100), nullable=False)
+    # country = Column(String(100), nullable=False)
     document_type = Column(String(100), nullable=False) # e.g., "National ID", "Passport"
     phone_number = Column(String(30), nullable=False)   # Protects formatting/long international codes
-    dob = Column(String(20), nullable=False)            # e.g., "DD/MM/YYYY"
+    dob = Column(String(20), nullable=False)
+    # e.g., "DD/MM/YYYY"
+    currency = Column(String(10), nullable=False, default="KES") # Added Currency!
     
     # Bcrypt produces a 60-character string, but 255 gives your security layer buffer room
     hashed_pin = Column(String(255), nullable=False) 
